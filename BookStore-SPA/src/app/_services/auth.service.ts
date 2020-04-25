@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { map } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   baseUrl = 'http://localhost:5000/api/auth/';
+  jwtHelper = new JwtHelperService();
+  // jwt helper services needed to check the token, if it is expired
+  decodedToken: any; // to fetch username from decoded token
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +21,9 @@ export class AuthService {
       const user = response;
       if (user){
         localStorage.setItem('token', user.token);
+        // decoding a token
+        this.decodedToken = this.jwtHelper.decodeToken(user.token);
+        console.log(this.decodedToken);
       }
     }));
   }
@@ -23,5 +31,17 @@ export class AuthService {
   register(model: any){
     return this.http.post(this.baseUrl + 'register', model);
     // returns observable object so need to subscribe in register component
+  }
+
+  loggedIn(){
+    // retrive token from local storage
+    const token = localStorage.getItem('token');
+
+    // use jwt helperService to see if it is expired
+    return !this.jwtHelper.isTokenExpired(token);
+
+    // isTokenExpired returns boolean. in this case if is expired, this returns true and we use ! operator.
+    // so if it is expired, returns true and converted to false and visaversa. so we do not have to change our code in othre components
+
   }
 }

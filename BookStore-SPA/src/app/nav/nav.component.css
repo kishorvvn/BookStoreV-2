@@ -1,0 +1,9 @@
+.dropdown-toggle, .dropdown-item{
+    cursor: pointer;
+}
+.loginForm{
+    margin-left: 900px;
+}
+nav ul li a, nav div a{
+    font-size: 1.2em;
+}
