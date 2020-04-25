@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-info text-white shadow-sm">
-  <a class="navbar-brand" href="#">BookStore</a>
+  <a class="navbar-brand" [routerLink]="['/home']">BookStore</a>
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto text-white">
-      <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Category</a></li>
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" [routerLink]="['/home']">Home</a></li>
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" [routerLink]="['/books']">Books</a></li>
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" [routerLink]="['/category']">Category</a></li>
     </ul>
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
       <a class="btn dropdown-toggle" dropdownToggle>
