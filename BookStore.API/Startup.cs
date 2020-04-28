@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using BookStore.API.Data;
 using BookStore.API.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -35,11 +36,16 @@ namespace BookStore.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(opt =>
+            {
+                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             //to avoid conflicts between two app sharing same server web Api and Angular
             services.AddCors();
+            services.AddAutoMapper(typeof (BookRepository).Assembly);
             //registering interface to the servise
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
 
             //Service for JWT authentication
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

@@ -3,14 +3,16 @@ using System;
 using BookStore.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookStore.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200427224306_AddingBookCategoryAndReview")]
+    partial class AddingBookCategoryAndReview
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +35,6 @@ namespace BookStore.API.Migrations
 
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("TEXT");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("PublishedDate")
                         .HasColumnType("TEXT");
@@ -75,9 +74,6 @@ namespace BookStore.API.Migrations
 
                     b.Property<string>("Comments")
                         .HasColumnType("TEXT");
-
-                    b.Property<double>("Rating")
-                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
