@@ -1,0 +1,17 @@
+<div class="card mb-4">
+  <div class="card-img-wrapper">
+    <img src="{{book.photoUrl}}" class="card-img-top" alt="{{book.title}}">
+    <button class="btn btn-info icon animate" [routerLink]="['/books/', book.id]" ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+  </div>
+  <div class="card-body p-1">
+    <h6 class="card-title text-center mb-1"><i class="fa fa-book"></i> {{book.title}}, Category: {{book.categoryName}} </h6>
+    <p class="card-text text-center text-muted">$ {{book.price}}</p>
+    <p class="card-text text-center text-muted">Avg.Rating: {{book.rating}}</p>
+    
+
+    
+    
+    
+  </div>
+</div>

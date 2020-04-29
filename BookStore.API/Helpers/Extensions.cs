@@ -19,18 +19,25 @@ namespace BookStore.API.Helpers
         public static double CalculateRating(this ICollection<Review> reviews)
         {
             var totalReviews = reviews.Count;
+            double avegRating = 0;
+            double total = 0;
+            if(totalReviews == 0){
+                return avegRating; 
+            }
+            else
+            {
             var rating1 = reviews.Where(b => b.Rating == 1).Count();
             var rating5 = reviews.Where(b => b.Rating == 5).Count();
             var rating4 = reviews.Where(b => b.Rating == 4).Count();
             var rating3 = reviews.Where(b => b.Rating == 3).Count();
             var rating2 = reviews.Where(b => b.Rating == 2).Count();
 
-            double total = ((rating1 * 1) + (rating2 * 2) + (rating3 * 3) + (rating4 * 4) + (rating5 * 5));
+            total = ((rating1 * 1) + (rating2 * 2) + (rating3 * 3) + (rating4 * 4) + (rating5 * 5));
 
-            double avegRating = total / totalReviews;
+            }
+            avegRating = total / totalReviews;
             
             return avegRating;
-
         }
     }
 }

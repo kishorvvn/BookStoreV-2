@@ -9,4 +9,4 @@ namespace BookStore.API.Models
         public int BookId { get; set; }
 
     }
-}
+}  

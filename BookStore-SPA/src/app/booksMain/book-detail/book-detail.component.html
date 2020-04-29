@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail"  src="{{book?.photoUrl}}" alt="{{book?.title}}">
+        <div class="card-body">
+          <div class="row">
+          <h5 class="mr-2 ml-3">Author:</h5>
+          <p >{{book?.author}} </p>
+          </div>
+          <div class="row"> 
+          <h5 class="mr-2 ml-3">Date Published:</h5>
+          <p>{{book?.publishedDate | date}} </p>
+          </div>
+          <div class="row"> 
+            <h5 class="mr-2 ml-3">ISBN:</h5>
+            <p>{{book?.isbn}} </p>
+          </div>
+          <div class="row"> 
+            <h5 class="mr-2 ml-3">Price:</h5>
+            <p> ${{book?.price}} </p>
+          </div>
+          <div class="row"> 
+            <h5 class="mr-2 ml-3">Average rating:</h5>
+            <p> {{book?.avegRating}} </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Reviews for {{book?.title}}" class="tab-title">
+            <h4>Reviews</h4>
+            <h5>Total reviews available: {{book?.reviews.length}} </h5>
+            <p *ngFor="let item of book?.reviews" class="detail-card">Rating: {{item.comments}}  </p>
+          </tab>
+          <tab heading="About {{book?.title}}">
+            <h4>Reviews</h4>
+            
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

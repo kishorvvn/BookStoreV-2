@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = 'http://localhost:5000/api/auth/';
+  // baseUrl = 'http://localhost:5000/api/auth/';
+  baseUrl = environment.apiUrl + 'auth/'; // changed because url is defined in environment
   jwtHelper = new JwtHelperService();
   // jwt helper services needed to check the token, if it is expired
   decodedToken: any; // to fetch username from decoded token

@@ -4,7 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { RouterModule } from '@angular/router';
+import { StarRatingModule } from 'angular-star-rating';
+import { JwtModule } from '@auth0/angular-jwt';
+
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -12,10 +16,16 @@ import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
-import { BooksComponent } from './books/books.component';
+import { BooksComponent } from './booksMain/books/books.component';
 import { CategoryComponent } from './category/category.component';
 import { appRoutes } from './routes';
+import { BookCardComponent } from './booksMain/book-card/book-card.component';
+import { BookDetailComponent } from './booksMain/book-detail/book-detail.component';
 
+
+export function tokenGetter(){
+   return localStorage.getItem('token');
+}
 
 @NgModule({
    declarations: [
@@ -24,7 +34,9 @@ import { appRoutes } from './routes';
       HomeComponent,
       RegisterComponent,
       BooksComponent,
-      CategoryComponent
+      CategoryComponent,
+      BookCardComponent,
+      BookDetailComponent
    ],
    imports: [
       BrowserModule,
@@ -32,7 +44,16 @@ import { appRoutes } from './routes';
       FormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRoutes)
+      TabsModule.forRoot(),
+      RouterModule.forRoot(appRoutes),
+      StarRatingModule.forRoot(),
+      JwtModule.forRoot({
+         config: {
+            tokenGetter: tokenGetter,
+            whitelistedDomains: ['localhost:5000'],
+            blacklistedRoutes: ['localhost:5000/api/auth']
+         }
+      })
    ],
    providers: [
       AuthService,

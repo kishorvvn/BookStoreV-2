@@ -20,7 +20,12 @@ namespace BookStore.API.Helpers
              .ForMember(dest => dest.CategoryName, opt =>
                 opt.MapFrom(src => src.Category.CategoryName))
                 .ForMember(dest => dest.AvegRating, opt =>
-                opt.MapFrom(src => src.Reviews.CalculateRating()));
+                opt.MapFrom(src => src.Reviews.CalculateRating()))
+                .ForMember(dest => dest.Reviews, opt =>
+                opt.MapFrom(src => src.Reviews))
+               .ForMember(dest => dest.ISBN, opt =>
+                opt.MapFrom(src => src.ISBN));
+                
             CreateMap<Review, ReviewForDetailedDto>();
         }
     }
