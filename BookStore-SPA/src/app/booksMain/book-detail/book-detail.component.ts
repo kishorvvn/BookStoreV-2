@@ -18,6 +18,8 @@ export class BookDetailComponent implements OnInit {
     this.loadBook();
   }
   loadBook(){
+    // ActivatedRoute has .snapshot property. ActivatedRouteSnapshot does not have it.
+    
     this.bookService.getBook(+this.route.snapshot.params['id']).subscribe((book: Book) => {
       this.book = book;
     }, error => {

@@ -4,6 +4,8 @@ import { BooksComponent } from './booksMain/books/books.component';
 import { CategoryComponent } from './category/category.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { BookDetailComponent } from './booksMain/book-detail/book-detail.component';
+import { BookEditComponent } from './booksMain/book-edit/book-edit.component';
+import { BookEditResolver } from './_resolvers/book-edit.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -16,6 +18,8 @@ export const appRoutes: Routes = [
         children: [
             { path: 'books', component: BooksComponent},
             { path: 'books/:id', component: BookDetailComponent},
+            { path: 'book/edit/:id', component: BookEditComponent, resolve: {book: BookEditResolver}},
+            // path will be /book/edit/id
             { path: 'category', component: CategoryComponent},
         ]
     },

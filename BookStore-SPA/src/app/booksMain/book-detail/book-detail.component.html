@@ -36,9 +36,10 @@
             <h5>Total reviews available: {{book?.reviews.length}} </h5>
             <p *ngFor="let item of book?.reviews" class="detail-card">Rating: {{item.comments}}  </p>
           </tab>
-          <tab heading="About {{book?.title}}">
-            <h4>Reviews</h4>
-            
+          <tab heading="Edit">
+            <!-- this is how to pass an Id of book to the edit component through resolver -->
+            <h5 class="mb-4">Edit this book details</h5>
+            <app-book-edit></app-book-edit>
           </tab>
         </tabset>
       </div>

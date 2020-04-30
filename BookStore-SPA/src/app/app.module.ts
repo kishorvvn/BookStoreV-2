@@ -21,6 +21,8 @@ import { CategoryComponent } from './category/category.component';
 import { appRoutes } from './routes';
 import { BookCardComponent } from './booksMain/book-card/book-card.component';
 import { BookDetailComponent } from './booksMain/book-detail/book-detail.component';
+import { BookEditComponent } from './booksMain/book-edit/book-edit.component';
+import { BookEditResolver } from './_resolvers/book-edit.resolver';
 
 
 export function tokenGetter(){
@@ -36,7 +38,8 @@ export function tokenGetter(){
       BooksComponent,
       CategoryComponent,
       BookCardComponent,
-      BookDetailComponent
+      BookDetailComponent,
+      BookEditComponent
    ],
    imports: [
       BrowserModule,
@@ -57,7 +60,8 @@ export function tokenGetter(){
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      BookEditResolver
    ],
    bootstrap: [
       AppComponent
