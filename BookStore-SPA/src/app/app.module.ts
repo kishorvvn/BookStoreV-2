@@ -23,6 +23,7 @@ import { BookCardComponent } from './booksMain/book-card/book-card.component';
 import { BookDetailComponent } from './booksMain/book-detail/book-detail.component';
 import { BookEditComponent } from './booksMain/book-edit/book-edit.component';
 import { BookEditResolver } from './_resolvers/book-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 export function tokenGetter(){
@@ -61,7 +62,8 @@ export function tokenGetter(){
    providers: [
       AuthService,
       ErrorInterceptorProvider,
-      BookEditResolver
+      BookEditResolver,
+      PreventUnsavedChanges // also add this to routes.ts as this is a route guard
    ],
    bootstrap: [
       AppComponent

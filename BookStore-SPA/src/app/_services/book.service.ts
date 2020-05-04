@@ -30,4 +30,8 @@ return this.http.get<Book[]>(this.baseUrl + 'books', httpOptions);
 getBook(id): Observable<Book> {
 return this.http.get<Book>(this.baseUrl + 'books/' + id, httpOptions);
 }
+
+updateBook(id: number, book: Book){
+  return this.http.put(this.baseUrl + 'books/' + id, book);
+}
 }

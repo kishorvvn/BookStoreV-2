@@ -27,6 +27,7 @@ namespace BookStore.API.Helpers
                 opt.MapFrom(src => src.ISBN));
                 
             CreateMap<Review, ReviewForDetailedDto>();
+            CreateMap<BookForUpdateDto, Book>();
         }
     }
 }
