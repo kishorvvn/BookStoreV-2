@@ -8,6 +8,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { RouterModule } from '@angular/router';
 import { StarRatingModule } from 'angular-star-rating';
 import { JwtModule } from '@auth0/angular-jwt';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 import { AppComponent } from './app.component';
@@ -24,6 +25,9 @@ import { BookDetailComponent } from './booksMain/book-detail/book-detail.compone
 import { BookEditComponent } from './booksMain/book-edit/book-edit.component';
 import { BookEditResolver } from './_resolvers/book-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotoEditorComponent } from './booksMain/Photo-Editor/Photo-Editor.component';
+
+
 
 
 export function tokenGetter(){
@@ -40,7 +44,8 @@ export function tokenGetter(){
       CategoryComponent,
       BookCardComponent,
       BookDetailComponent,
-      BookEditComponent
+      BookEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
@@ -49,6 +54,7 @@ export function tokenGetter(){
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
+      FileUploadModule,
       RouterModule.forRoot(appRoutes),
       StarRatingModule.forRoot(),
       JwtModule.forRoot({

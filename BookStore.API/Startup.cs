@@ -42,6 +42,9 @@ namespace BookStore.API
             });
             //to avoid conflicts between two app sharing same server web Api and Angular
             services.AddCors();
+            // to match cloudinarySettings class to the appsetings.json section
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+            
             services.AddAutoMapper(typeof (BookRepository).Assembly);
             //registering interface to the servise
             services.AddScoped<IAuthRepository, AuthRepository>();

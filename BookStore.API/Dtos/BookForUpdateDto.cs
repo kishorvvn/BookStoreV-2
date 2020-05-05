@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace BookStore.API.Dtos
 {
@@ -10,5 +11,8 @@ namespace BookStore.API.Dtos
         public string Isbn { get; set; }
         public double Price { get; set; }
         public string CategoryName { get; set; }
+        public string  PhotoUrl { get; set; }
+        public string PublicId { get; set; }
+        public IFormFile File { get; set; }
     }
 }

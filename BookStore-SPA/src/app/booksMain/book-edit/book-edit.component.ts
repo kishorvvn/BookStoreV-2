@@ -5,6 +5,8 @@ import { BookService } from 'src/app/_services/book.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { NgForm } from '@angular/forms';
 
+import { AuthService } from 'src/app/_services/auth.service';
+
 @Component({
   selector: 'app-book-edit',
   templateUrl: './book-edit.component.html',
@@ -14,7 +16,8 @@ export class BookEditComponent implements OnInit {
   // to reset the edit form after hitting save button
   @ViewChild('editForm', {static: true}) editForm: NgForm;
   book: Book;
-
+  // -----------------------------------------------------
+ 
   // to warn the user if they close the browser during editing book
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any){
@@ -23,8 +26,9 @@ export class BookEditComponent implements OnInit {
     }
   }
 
-
-  constructor(private bookService: BookService, private alertify: AlertifyService, private route: ActivatedRoute) { }
+  constructor(private bookService: BookService, private alertify: AlertifyService,
+              private route: ActivatedRoute, private authSevice: AuthService) {
+               }
 
   ngOnInit() {
     this.loadBook();
@@ -50,4 +54,8 @@ export class BookEditComponent implements OnInit {
       this.alertify.error(error);
     });
   }
-}
+
+  // -----------------------------------------------------
+
+  }
+
