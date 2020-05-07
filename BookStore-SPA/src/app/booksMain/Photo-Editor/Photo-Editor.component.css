@@ -6,3 +6,11 @@
 .uploadbtn{
     margin-left: 90px;
 }
+
+input[type='file']{
+    color: transparent;
+}
+
+.nv-file-over{
+    border: 3px solid rgba(110, 193, 228, 0.8);
+}

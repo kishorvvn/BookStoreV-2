@@ -18,6 +18,14 @@ namespace BookStore.API.Data
             _context.Add(entity);
         }
 
+        public async Task<Book> AddBook(Book book)
+        {
+           await _context.Books.AddAsync(book);
+            await _context.SaveChangesAsync();
+
+            return book;
+        }
+
         public void Delete<T>(T entity) where T : class
         {
             _context.Remove(entity);

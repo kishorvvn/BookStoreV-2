@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -26,6 +26,9 @@ import { BookEditComponent } from './booksMain/book-edit/book-edit.component';
 import { BookEditResolver } from './_resolvers/book-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './booksMain/Photo-Editor/Photo-Editor.component';
+import { PopularPipe } from './popular.pipe';
+import { BookCreateComponent } from './booksMain/book-create/book-create.component';
+
 
 
 
@@ -45,12 +48,16 @@ export function tokenGetter(){
       BookCardComponent,
       BookDetailComponent,
       BookEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      BookCreateComponent,
+      PopularPipe
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      FormGroup,
+      ReactiveFormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),

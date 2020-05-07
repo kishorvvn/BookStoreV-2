@@ -56,6 +56,5 @@ export class BookEditComponent implements OnInit {
   }
 
   // -----------------------------------------------------
-
   }
 

@@ -11,5 +11,6 @@ namespace BookStore.API.Data
         Task<bool> SaveAll();
         Task<IEnumerable<Book>> GetBooks();
         Task<Book> GetBook(int id);
+        Task<Book> AddBook(Book book);
     }
 }

@@ -128,5 +128,25 @@ namespace BookStore.API.Controllers
     }
 
 
-    }
+    
+    [HttpPost("addBook")]
+        public async Task<IActionResult> AddBook([FromForm]BookToAddDto bookToAddDto)
+        { 
+            var bookToCreate = _mapper.Map<Book>(bookToAddDto);
+    //     var bookToCreate = new Book{
+
+    //       Title = book.Title,
+    //       Author = book.Author,
+    //       PublishedDate = book.PublishedDate,
+    //       ISBN = book.ISBN,
+    //       Price = book.Price,
+    //       PhotoUrl = book.PhotoUrl,
+    //       CategoryId = book.CategoryId
+    // };
+
+    var createdBook = await _repo.AddBook(bookToCreate);
+    return StatusCode(201);
+}
+
+}
 }

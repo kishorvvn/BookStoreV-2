@@ -13,7 +13,7 @@
 </div>
 <div class="row mb-2">
   <h6 class="col-sm-2">Publication date: </h6>
-  <input class="form-control col-sm-5" name="publishedDate" id="" cols="30" rows="10" [(ngModel)]="book.publishedDate" />
+  <input class="form-control col-sm-5" type="date" name="publishedDate" id="" cols="30" rows="10" [(ngModel)]="book.publishedDate" />
 </div>
 <div class="row mb-2">
   <h6 class="col-sm-2">ISBN: </h6>
@@ -36,7 +36,7 @@
   <!-- <img class="img img-thumbnail w-25 h-25" src="{{book.photoUrl}}" alt=""> -->
 </div>
 <div class="">
-  <app-Photo-Editor [book]="book"></app-Photo-Editor>
+  <app-Photo-Editor [book]="book" ></app-Photo-Editor>
 </div>
 
 <!--  -->

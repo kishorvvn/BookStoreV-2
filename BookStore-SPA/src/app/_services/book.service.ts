@@ -11,6 +11,12 @@ const httpOptions = {
   })
 };
 
+const httpOptions1 = {
+  headers: new HttpHeaders()
+  .set('Content-type', 'application/json')
+};
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -34,4 +40,9 @@ return this.http.get<Book>(this.baseUrl + 'books/' + id, httpOptions);
 updateBook(id: number, book: Book){
   return this.http.put(this.baseUrl + 'books/' + id, book);
 }
+
+addBook(book: Book){
+  return this.http.post(this.baseUrl + 'books/addBook', book, httpOptions1);
+}
+
 }

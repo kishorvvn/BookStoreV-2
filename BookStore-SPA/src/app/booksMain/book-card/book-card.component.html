@@ -1,6 +1,6 @@
 <div class="card mb-4">
   <div class="card-img-wrapper">
-    <img  src="{{book.photoUrl}}" class="card-img-top img-thumbnail" alt="{{book.title}}">
+    <img  src="{{book.photoUrl || '../../../../../assets/images/no-image.jpg'}}" class="card-img-top img-thumbnail" alt="{{book.title}}">
     <button class="btn btn-info icon animate" [routerLink]="['/books/', book.id]" ><i class="fa fa-search" aria-hidden="true"></i></button>
 
   </div>

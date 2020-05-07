@@ -7,6 +7,8 @@ import { BookDetailComponent } from './booksMain/book-detail/book-detail.compone
 import { BookEditComponent } from './booksMain/book-edit/book-edit.component';
 import { BookEditResolver } from './_resolvers/book-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { BookCreateComponent } from './booksMain/book-create/book-create.component';
+
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -23,6 +25,7 @@ export const appRoutes: Routes = [
                     canDeactivate: [PreventUnsavedChanges]},
             // path will be /book/edit/id
             { path: 'category', component: CategoryComponent},
+            { path: 'addBook', component: BookCreateComponent}
         ]
     },
         { path: '**', redirectTo: 'home', pathMatch: 'full'},

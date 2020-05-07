@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail"  src="{{book?.photoUrl}}" alt="{{book?.title}}">
+        <img class="card-img-top img-thumbnail"  src="{{book?.photoUrl || '../../../../../assets/images/no-image.jpg'}}" alt="{{book?.title}}">
         <div class="card-body">
           <div class="row">
           <h5 class="mr-2 ml-3">Author:</h5>
@@ -34,7 +34,7 @@
           <tab heading="Reviews for {{book?.title}}" class="tab-title">
             <h4>Reviews</h4>
             <h5>Total reviews available: {{book?.reviews.length}} </h5>
-            <p *ngFor="let item of book?.reviews" class="detail-card"> {{item.comments}}  </p>
+            <p *ngFor="let item of book?.reviews; let i = index" class="detail-card"> {{i + 1}}. {{item.comments}}  </p>
           </tab>
           <tab heading="Edit">
             <!-- this is how to pass an Id of book to the edit component through resolver -->

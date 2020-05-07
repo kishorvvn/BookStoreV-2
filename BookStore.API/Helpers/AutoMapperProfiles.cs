@@ -29,6 +29,7 @@ namespace BookStore.API.Helpers
             CreateMap<Review, ReviewForDetailedDto>();
             CreateMap<BookForUpdateDto, Book>();
             CreateMap<Book, BookForUpdateDto>();
+            CreateMap<BookToAddDto, Book>();
             
         }
     }
